@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UIViewController <UIPageViewControllerDelegate>
+@interface RootViewController : UIViewController <UIScrollViewDelegate>
+@property (strong, nonatomic) IBOutlet UIScrollView *homeView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UILabel *homeTxt1;
+@property (weak, nonatomic) IBOutlet UILabel *homeTxt2;
 
-@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (weak, nonatomic) IBOutlet UIImageView *training;
+@property (weak, nonatomic) IBOutlet UIImageView *yoga;
+@property (weak, nonatomic) IBOutlet UIImageView *massage;
+
+@property (weak, nonatomic) IBOutlet UILabel *trainingTxt;
+@property (weak, nonatomic) IBOutlet UILabel *yogaTxt;
+@property (weak, nonatomic) IBOutlet UILabel *massageTxt;
 
 @end
-

@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		908F84311B8060C1000105B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F84301B8060C1000105B3 /* main.m */; };
 		908F84341B8060C1000105B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F84331B8060C1000105B3 /* AppDelegate.m */; };
-		908F84371B8060C1000105B3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F84361B8060C1000105B3 /* RootViewController.m */; };
-		908F843A1B8060C1000105B3 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F84391B8060C1000105B3 /* DataViewController.m */; };
-		908F843D1B8060C1000105B3 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F843C1B8060C1000105B3 /* ModelController.m */; };
 		908F84401B8060C1000105B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908F843E1B8060C1000105B3 /* Main.storyboard */; };
 		908F84421B8060C1000105B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 908F84411B8060C1000105B3 /* Images.xcassets */; };
 		908F84451B8060C1000105B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908F84431B8060C1000105B3 /* LaunchScreen.xib */; };
 		908F84511B8060C1000105B3 /* GoTymTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F84501B8060C1000105B3 /* GoTymTestTests.m */; };
+		90929DCB1B8078CF0063FA29 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90929DCA1B8078CF0063FA29 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,18 +32,14 @@
 		908F84301B8060C1000105B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		908F84321B8060C1000105B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		908F84331B8060C1000105B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		908F84351B8060C1000105B3 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		908F84361B8060C1000105B3 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		908F84381B8060C1000105B3 /* DataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
-		908F84391B8060C1000105B3 /* DataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
-		908F843B1B8060C1000105B3 /* ModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
-		908F843C1B8060C1000105B3 /* ModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
 		908F843F1B8060C1000105B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		908F84411B8060C1000105B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		908F84441B8060C1000105B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		908F844A1B8060C1000105B3 /* GoTymTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoTymTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		908F844F1B8060C1000105B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		908F84501B8060C1000105B3 /* GoTymTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoTymTestTests.m; sourceTree = "<group>"; };
+		90929DC91B8078CF0063FA29 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		90929DCA1B8078CF0063FA29 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,15 +83,7 @@
 			children = (
 				908F84321B8060C1000105B3 /* AppDelegate.h */,
 				908F84331B8060C1000105B3 /* AppDelegate.m */,
-				908F84351B8060C1000105B3 /* RootViewController.h */,
-				908F84361B8060C1000105B3 /* RootViewController.m */,
-				908F84381B8060C1000105B3 /* DataViewController.h */,
-				908F84391B8060C1000105B3 /* DataViewController.m */,
-				908F843B1B8060C1000105B3 /* ModelController.h */,
-				908F843C1B8060C1000105B3 /* ModelController.m */,
-				908F843E1B8060C1000105B3 /* Main.storyboard */,
-				908F84411B8060C1000105B3 /* Images.xcassets */,
-				908F84431B8060C1000105B3 /* LaunchScreen.xib */,
+				908F845F1B806633000105B3 /* View */,
 				908F842E1B8060C1000105B3 /* Supporting Files */,
 			);
 			path = GoTymTest;
@@ -106,6 +92,7 @@
 		908F842E1B8060C1000105B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				908F84411B8060C1000105B3 /* Images.xcassets */,
 				908F842F1B8060C1000105B3 /* Info.plist */,
 				908F84301B8060C1000105B3 /* main.m */,
 			);
@@ -127,6 +114,17 @@
 				908F844F1B8060C1000105B3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		908F845F1B806633000105B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				908F84431B8060C1000105B3 /* LaunchScreen.xib */,
+				908F843E1B8060C1000105B3 /* Main.storyboard */,
+				90929DC91B8078CF0063FA29 /* RootViewController.h */,
+				90929DCA1B8078CF0063FA29 /* RootViewController.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +176,7 @@
 				TargetAttributes = {
 					908F842A1B8060C1000105B3 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 5F5KU23F35;
 					};
 					908F84491B8060C1000105B3 = {
 						CreatedOnToolsVersion = 6.4;
@@ -229,11 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				908F843A1B8060C1000105B3 /* DataViewController.m in Sources */,
 				908F84341B8060C1000105B3 /* AppDelegate.m in Sources */,
-				908F843D1B8060C1000105B3 /* ModelController.m in Sources */,
 				908F84311B8060C1000105B3 /* main.m in Sources */,
-				908F84371B8060C1000105B3 /* RootViewController.m in Sources */,
+				90929DCB1B8078CF0063FA29 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GoTymTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GoTymTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,6 +427,7 @@
 				908F84561B8060C1000105B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		908F84571B8060C1000105B3 /* Build configuration list for PBXNativeTarget "GoTymTestTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +436,7 @@
 				908F84591B8060C1000105B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
