@@ -12,6 +12,8 @@
 {
     int imageCount;
     int currentPage;
+    CGFloat viewFullWidth;
+    CGFloat viewFullHeight;
 }
 @end
 
@@ -19,9 +21,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    viewFullWidth = screenRect.size.width;
+    viewFullHeight = screenRect.size.height;
+    NSLog(@"%f,%f", viewFullWidth, viewFullHeight);
+    
     // Do any additional setup after loading the view.
-    self.homeTxt1.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:35.0f];
-    self.homeTxt2.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:40.0f];
+    self.homeTxt1.font = [UIFont fontWithName:@"AvenirNext-UltraLight" size:35.0f];
+    self.homeTxt2.font = [UIFont fontWithName:@"AvenirNext-UltraLight" size:40.0f];
     self.homeTxt1.textColor = [UIColor whiteColor];
     self.homeTxt2.textColor = [UIColor whiteColor];
     self.homeTxt1.shadowColor = [UIColor darkGrayColor];
@@ -33,7 +41,6 @@
     self.massageTxt.textColor = [UIColor whiteColor];
     self.massageTxt.shadowColor = [UIColor darkGrayColor];
     
-    
     self.training.layer.cornerRadius = 30;
     self.training.layer.masksToBounds = YES;
     self.yoga.layer.cornerRadius = 30;
@@ -42,12 +49,11 @@
     self.massage.layer.masksToBounds = YES;
     
     [self setupScrollView];
-    
 }
 
 -(void) setupScrollView {
     //add the scrollview to the view
-    self.homeView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0,self.view.frame.size.width,self.view.frame.size.height)];
+    self.homeView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0,viewFullWidth,viewFullHeight)];
     
     self.homeView.delegate = self;
     self.homeView.pagingEnabled = YES;
@@ -55,11 +61,11 @@
     
     imageCount = 3;
     for (int i = 0; i < imageCount; i++) {
-        CGFloat xOrigin = i * self.view.frame.size.width;
+        CGFloat xOrigin = i * viewFullWidth;
         UIImageView *image = [[UIImageView alloc] initWithFrame:
                               CGRectMake(xOrigin, 0,
-                                         self.view.frame.size.width,
-                                         self.view.frame.size.height)];
+                                         viewFullWidth,
+                                         viewFullHeight)];
         image.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_%d", i+1]];
         image.contentMode = UIViewContentModeScaleAspectFill;
         [self.homeView addSubview:image];
@@ -67,20 +73,20 @@
     
     //for rotating view
     UIImageView *imageLast = [[UIImageView alloc] initWithFrame:
-                          CGRectMake(imageCount*self.view.frame.size.width, 0,
-                                     self.view.frame.size.width,
-                                     self.view.frame.size.height)];
+                          CGRectMake(imageCount*viewFullWidth, 0,
+                                     viewFullWidth,
+                                     viewFullHeight)];
     imageLast.image = [UIImage imageNamed:@"home_1"];
     imageLast.contentMode = UIViewContentModeScaleAspectFill;
     [self.homeView addSubview:imageLast];
 
     
-    [self.homeView setContentSize:CGSizeMake(self.view.frame.size.width * (imageCount + 1), self.view.frame.size.height)];
+    [self.homeView setContentSize:CGSizeMake(viewFullWidth * (imageCount + 1), viewFullHeight)];
     [self.homeView setContentOffset:CGPointMake(0, 0)];
     [self.view addSubview:self.homeView];
-    [self.homeView scrollRectToVisible:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height) animated:NO]; //initialize to firstpage
+    [self.homeView scrollRectToVisible:CGRectMake(0,0,viewFullWidth,viewFullHeight) animated:NO]; //initialize to firstpage
     
-    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
+    //[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
 
 }
 
@@ -93,7 +99,7 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)sender
 {
-/*
+
     currentPage = floor((self.homeView.contentOffset.x - self.homeView.frame.size.width / (imageCount+2)) / self.homeView.frame.size.width) + 1;
     NSLog(@"page = %d, imageCount %d", currentPage, imageCount);
     self.pageControl.currentPage = currentPage;
@@ -108,7 +114,7 @@
         [self.homeView scrollRectToVisible:CGRectMake(0,0,self.homeView.frame.size.width ,self.homeView.frame.size.height) animated:NO];
         self.pageControl.currentPage = 0;
     }
-*/
+
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -117,25 +123,28 @@
     [UIView transitionWithView:self.homeView duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
     } completion:^(BOOL finished) {
     }];
+    //[UIView transitionWithView:self.homeView duration:1.0 options:UIV animations:^{
+    //} completion:^(BOOL finished) {
+    //}];
 }
 
 - (void)scrollingTimer
 {
-    currentPage = floor((self.homeView.contentOffset.x - self.homeView.frame.size.width / (imageCount+2)) / self.homeView.frame.size.width) + 1;
+    currentPage = floor((self.homeView.contentOffset.x - viewFullWidth / (imageCount+2)) / viewFullWidth) + 1;
     NSLog(@"page = %d, imageCount %d", currentPage, imageCount);
     int next = currentPage+1;
     
     if (next == imageCount)
     {
         NSLog(@"Loop again");
-        [self.homeView scrollRectToVisible:CGRectMake(0,0,self.homeView.frame.size.width ,self.homeView.frame.size.height) animated:NO];
+        [self.homeView scrollRectToVisible:CGRectMake(0,0,viewFullWidth ,viewFullHeight) animated:NO];
         self.pageControl.currentPage = 0;
     }
     else
     {
         //go last but 1 page
         NSLog(@"move!");
-        [self.homeView scrollRectToVisible:CGRectMake(self.homeView.frame.size.width  * next,0,self.homeView.frame.size.width ,self.homeView.frame.size.height ) animated:NO];
+        [self.homeView scrollRectToVisible:CGRectMake(viewFullWidth * next,0,viewFullWidth ,viewFullHeight) animated:NO];
         self.pageControl.currentPage = currentPage+1;
     }
     
