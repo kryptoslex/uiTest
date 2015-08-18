@@ -84,9 +84,9 @@
     [self.homeView setContentSize:CGSizeMake(viewFullWidth * (imageCount + 1), viewFullHeight)];
     [self.homeView setContentOffset:CGPointMake(0, 0)];
     [self.view addSubview:self.homeView];
-    [self.homeView scrollRectToVisible:CGRectMake(0,0,viewFullWidth,viewFullHeight) animated:NO]; //initialize to firstpage
+    //[self.homeView scrollRectToVisible:CGRectMake(0,0,viewFullWidth,viewFullHeight) animated:NO]; //initialize to firstpage
     
-    //[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
 
 }
 
