@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "UIView+Genie.h"
 
 @interface RootViewController ()
 {
@@ -49,6 +50,28 @@
     self.massage.layer.masksToBounds = YES;
     
     [self setupScrollView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeView:) name:@"goToView" object:nil];
+    
+    
+}
+
+
+- (void)changeView:(NSNotification*) notif
+{
+
+    CGRect endRect = CGRectMake(self.view.frame.size.width-35, 35, 0, 0);
+    [self.view genieInTransitionWithDuration:0.7
+                        destinationRect:endRect
+                        destinationEdge:BCRectEdgeLeft
+                             completion:^{
+                                 NSLog(@"I'm done!");
+                             }];
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    NSLog(@"genie effect!");
+    
 }
 
 -(void) setupScrollView {
@@ -101,7 +124,7 @@
 {
 
     currentPage = floor((self.homeView.contentOffset.x - self.homeView.frame.size.width / (imageCount+2)) / self.homeView.frame.size.width) + 1;
-    NSLog(@"page = %d, imageCount %d", currentPage, imageCount);
+    //NSLog(@"page = %d, imageCount %d", currentPage, imageCount);
     self.pageControl.currentPage = currentPage;
     if (currentPage == 0)
     {
@@ -110,7 +133,7 @@
     }
     else if (currentPage==imageCount)
     {
-        NSLog(@"Loop again");
+        //NSLog(@"Loop again");
         [self.homeView scrollRectToVisible:CGRectMake(0,0,self.homeView.frame.size.width ,self.homeView.frame.size.height) animated:NO];
         self.pageControl.currentPage = 0;
     }
@@ -131,19 +154,19 @@
 - (void)scrollingTimer
 {
     currentPage = floor((self.homeView.contentOffset.x - viewFullWidth / (imageCount+2)) / viewFullWidth) + 1;
-    NSLog(@"page = %d, imageCount %d", currentPage, imageCount);
+    //NSLog(@"page = %d, imageCount %d", currentPage, imageCount);
     int next = currentPage+1;
     
     if (next == imageCount)
     {
-        NSLog(@"Loop again");
+        //NSLog(@"Loop again");
         [self.homeView scrollRectToVisible:CGRectMake(0,0,viewFullWidth ,viewFullHeight) animated:NO];
         self.pageControl.currentPage = 0;
     }
     else
     {
         //go last but 1 page
-        NSLog(@"move!");
+        //NSLog(@"move!");
         [self.homeView scrollRectToVisible:CGRectMake(viewFullWidth * next,0,viewFullWidth ,viewFullHeight) animated:NO];
         self.pageControl.currentPage = currentPage+1;
     }
